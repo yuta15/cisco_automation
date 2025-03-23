@@ -1,0 +1,13 @@
+cisco_automationcisco_automation[main] % curl -i -k -X "OPTIONS" "https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/logging/monitor/severity"  -H 'Accept:application/yang-data+json' -u 'username:password'
+HTTP/1.1 200 OK
+Server: openresty
+Date: Sun, 23 Mar 2025 02:46:31 GMT
+Content-Type: text/html
+Content-Length: 0
+Connection: keep-alive
+Allow: DELETE, GET, HEAD, PATCH, POST, PUT, OPTIONS
+Cache-Control: private, no-cache, must-revalidate, proxy-revalidate
+Accept-Patch: application/yang-data+xml, application/yang-data+json
+Pragma: no-cache
+
+cisco_automationcisco_automation[main] % 
