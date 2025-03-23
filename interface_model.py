@@ -37,7 +37,7 @@ class InterfaceModel(BaseModel):
         else:
             return {
                 self.if_type: {
-                    "name": self.if_num,
+                    "name": str(self.if_num)+'.'+str(self.vlan_id),
                     "encapsulation":{
                         "dot1Q":{
                             "vlan-id": self.vlan_id

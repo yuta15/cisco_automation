@@ -43,13 +43,13 @@
       },
       {
         "name": "4",
-        "shutdown": [null],
-        "mop": {
-          "enabled": false,
-          "sysid": false
-        },
-        "Cisco-IOS-XE-ethernet:negotiation": {
-          "auto": true
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.100.1",
+              "mask": "255.255.255.0"
+            }
+          }
         }
       }
     ]
@@ -59,140 +59,32 @@
 204
 https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=4
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%222.101%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%222.102%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%222.103%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%222.104%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223.200%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223.201%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223.202%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223.203%22
 
-400
-https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3
-{
-  "errors": {
-    "error": [
-      {
-        "error-message": "inconsistent value: Device refused one or more commands",
-        "error-path": "/Cisco-IOS-XE-native:native/interface/GigabitEthernet=3",
-        "error-tag": "invalid-value",
-        "error-type": "application"
-      }
-    ]
-  }
-}
+201
+https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223.204%22
 
 200 https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface {
   "Cisco-IOS-XE-native:interface": {
@@ -227,6 +119,70 @@ https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/Gig
         }
       },
       {
+        "name": "2.101",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 101
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.101.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "2.102",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 102
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.102.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "2.103",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 103
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.103.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "2.104",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 104
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.104.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
         "name": "3",
         "shutdown": [null],
         "mop": {
@@ -235,6 +191,86 @@ https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/Gig
         },
         "Cisco-IOS-XE-ethernet:negotiation": {
           "auto": true
+        }
+      },
+      {
+        "name": "3.200",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 200
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.200.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "3.201",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 201
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.201.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "3.202",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 202
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.202.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "3.203",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 203
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.203.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        }
+      },
+      {
+        "name": "3.204",
+        "encapsulation": {
+          "dot1Q": {
+            "vlan-id": 204
+          }
+        },
+        "ip": {
+          "address": {
+            "primary": {
+              "address": "10.1.204.1",
+              "mask": "255.255.255.0"
+            }
+          }
         }
       },
       {
