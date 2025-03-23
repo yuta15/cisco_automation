@@ -4,6 +4,7 @@ import json
 from restconf_client import RestconfClient
 from setting import Setting
     
+    
 def main():
     # 環境変数設定
     env_vars = Setting()
@@ -30,28 +31,31 @@ def main():
         {'if_type': 'GigabitEthernet', 'if_num': 3.204, 'if_addr_and_mask': '10.1.204.1/24','vlan_id': 204},
     ]
     tesf_del_if_params = [
-        {'if_type': 'GigabitEthernet', 'if_num': 2.100},
+        # {'if_type': 'GigabitEthernet', 'if_num': 2.1},
         {'if_type': 'GigabitEthernet', 'if_num': 2.101},
         {'if_type': 'GigabitEthernet', 'if_num': 2.102},
         {'if_type': 'GigabitEthernet', 'if_num': 2.103},
         {'if_type': 'GigabitEthernet', 'if_num': 2.104},
-        {'if_type': 'GigabitEthernet', 'if_num': 3.200},
+        # {'if_type': 'GigabitEthernet', 'if_num': 3.2},
         {'if_type': 'GigabitEthernet', 'if_num': 3.201},
         {'if_type': 'GigabitEthernet', 'if_num': 3.202},
         {'if_type': 'GigabitEthernet', 'if_num': 3.203},
         {'if_type': 'GigabitEthernet', 'if_num': 3.204},
     ]
+
+
     # 削除
-    # for test_del_pal in tesf_del_if_params:
-    #     response = client.delete_interface(**test_del_pal)
-    #     print(response)
+    for test_del_pal in tesf_del_if_params:
+        response = client.delete_interface(**test_del_pal)
+        print(response.status_code)
+
 
     # 実行結果及び結果の書き出し
-    with open('result.txt', mode='w') as f:
-        print(client.fetch_all_interface_data().json(), file=f)
-        for if_param in tesf_if_params:
-            print(client.create_interface(**if_param).status_code, file=f)
-        print(client.fetch_all_interface_data().json(), file=f)
+    # with open('result.txt', mode='w') as f:
+    #     print(client.fetch_all_interface_data().json(), file=f)
+    #     for if_param in tesf_if_params:
+    #         print(client.create_interface(**if_param).status_code, file=f)
+    #     print(client.fetch_all_interface_data().json(), file=f)
     
 
 if __name__ == "__main__":

@@ -104,7 +104,7 @@ class RestconfClient():
         """
         指定したインターフェースを初期化する。
         """
-        if isinstance(if_num, str) and "/" in if_num:
+        if "/" in if_num:
             if_num="%".join(if_num.split("/"))
         url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface/{if_type}="{if_num}"'
         try:
