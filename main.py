@@ -5,7 +5,7 @@ def main():
     env_vars = Setting()
     
     client = RestconfClient(
-        host='192.168.',
+        host='192.168.1.100',
         username=env_vars.username,
         password=env_vars.password,
         port=env_vars.port

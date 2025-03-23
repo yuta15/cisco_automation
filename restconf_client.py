@@ -42,7 +42,7 @@ class RestconfClient():
             if_addr_and_mask=if_addr_and_mask,
             vlan_id=vlan_id
         ).generate_if_json()
-        url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface/{if_type}={if_num}.{vlan_id if not vlan_id==None else ''}'
+        url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface/{if_type}={if_num}.{vlan_id if not vlan_id==None else ""}'
         response = requests.put(
             url=url,
             auth=(self.username, self.password),
