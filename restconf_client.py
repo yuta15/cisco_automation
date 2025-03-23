@@ -10,111 +10,90 @@ class RestconfClient():
         self.port:int = port
         self.base_url = f'https://{self.host}:{self.port}/restconf/data'
         self.header = {'Content-Type': 'application/yang-data+json', 'Accept': 'application/yang-data+json'}
-        
 
-    # def interface_no_shutdown(self, if_type, if_num):
-    #     """
-    #     Args:
-    #         if_type: str, 
-    #             Interfaceの種類や名前
-    #             ex) GigabitEthernet
-    #                 Fastethernet等
-    #         if_num: int | str, 
-    #             interface番号
-    #             ex) 1を指定した場合、Gigabitethernet1,
-    #                 1/24を指定した場合、Gigabitethernet1/24のような形になる。
-    #     """
-    #     url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface/{if_type}={if_num}
-    #     body= {
 
-    #         "name": "2",
-    #         "shutdown": False,
-    #     },
-
-        
-    def create_interface(
-        self, 
-        if_type: str, 
-        if_num: int | str, 
-        if_addr_and_mask: str, 
-        vlan_id: int = None
-        ):
+    def put_config(self, url: str, config: dict, verify:bool=False) -> requests.Response:
         """
+        設定をPUTする関数
         Args:
-            if_type: str, 
-                Interfaceの種類や名前
-                ex) GigabitEthernet
-                    Fastethernet等
-            if_num: int | str, 
-                interface番号
-                ex) 1を指定した場合、Gigabitethernet1,
-                    1/24を指定した場合、Gigabitethernet1/24のような形になる。
-                    subintafaceを指定する場合は、
-                    1.101のように指定
-            if_addr_and_mask: str
-                interfaceアドレスおよびマスク情報
-                ex)192.168.1.1/24, 10.10.1.1/16等
-            vlan_id: int = None
-                vlan IDを指定
-                ex)100を指定するとGigabitEthernet1.100のようになります。
-        """
-        put_if_data = InterfaceModel(
-            if_type=if_type,
-            if_num=if_num,
-            if_addr_and_mask=if_addr_and_mask,
-            vlan_id=vlan_id
-        ).generate_if_dict()
+            url: str
+                PUTするデータのURL.先頭の/はつけないこと。
+                'https://{self.host}:{self.port}/restconf/data'に連結するURLを指定する。
+                ex)
+                    url=Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+                    -> https://{self.host}:{self.port}/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+            config:dict
+                PUTするデータ
+            verify: bool = False
 
-        if isinstance(if_num, str) and "/" in if_num:
-            if_num="%".join(if_num.split("/"))
-        url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface/{if_type}="{if_num}"'
+        return: 
+            Response: requests.Response
+        """
         try:
-            response = requests.put(
-                url=url,
+            response = requests.post(
+                url=self.base_url+'/'+url,
                 auth=(self.username, self.password),
                 headers=self.header,
-                json=put_if_data,
-                verify=False
+                json=config,
+                verify=verify
             )
-        except:
-            raise 
+        except requests.HTTPError:
+            raise requests.HTTPError()
         else:
             return response
 
 
-    def fetch_all_interface_data(self):
+    def get_config(self, url: str, verify:bool=False) -> requests.Response:
         """
-        全インターフェース情報を取得するための関数
+        設定をPUTする関数
+        Args:
+            url: str
+                PUTするデータのURL.先頭の/はつけないこと。
+                'https://{self.host}:{self.port}/restconf/data'に連結するURLを指定する。
+                ex)
+                    url=Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+                    -> https://{self.host}:{self.port}/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+            verify: bool = False
+
+        return: 
+            Response: requests.Response
         """
-        url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface'
         try:
             response = requests.get(
-                url=url,
+                url=self.base_url+'/'+url,
                 auth=(self.username, self.password),
                 headers=self.header,
-                verify=False
-                )
-        except:
-            raise
+                verify=verify
+            )
+        except requests.HTTPError:
+            raise requests.HTTPError()
         else:
             return response
-    
 
-    def delete_interface(self, if_type, if_num):
+
+    def delete_config(self, url: str, verify:bool=False) -> requests.Response:
         """
-        指定したインターフェースを初期化する。
+        設定をdeleteする関数
+        Args:
+            url: str
+                PUTするデータのURL.先頭の/はつけないこと。
+                'https://{self.host}:{self.port}/restconf/data'に連結するURLを指定する。
+                ex)
+                    url=Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+                    -> https://{self.host}:{self.port}/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+            verify: bool = False
+
+        return: 
+            Response: requests.Response
         """
-        if "/" in if_num:
-            if_num="%".join(if_num.split("/"))
-        url = f'{self.base_url}/Cisco-IOS-XE-native:native/interface/{if_type}="{if_num}"'
         try:
             response = requests.delete(
-                url=url,
+                url=self.base_url+'/'+url,
                 auth=(self.username, self.password),
                 headers=self.header,
-                verify=False
-                )
-        except:
-            raise
+                verify=verify
+            )
+        except requests.HTTPError:
+            raise requests.HTTPError()
         else:
             return response
