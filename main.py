@@ -15,7 +15,7 @@ def main():
         port=env_vars.port
     )
 
-    # テスト用パラメータ
+    # テスト用データ
     test_if_params = [
         {'if_type': 'GigabitEthernet', 'if_name': 2.100, 'pri_addr_and_mask': '10.1.101.1/24','vlan_id': 100, "if_description": "### vlan 100 ###"},
         {'if_type': 'GigabitEthernet', 'if_name': 2.101, 'pri_addr_and_mask': '10.1.101.1/24','vlan_id': 101},
@@ -29,6 +29,7 @@ def main():
         {'if_type': 'GigabitEthernet', 'if_name': 3.204, 'pri_addr_and_mask': '10.1.204.1/24','vlan_id': 204},
     ]
 
+    # 実行
     with open('result.txt', mode='w') as f:
         print(client.fetch_all_interface_data().json(), file=f)
         print('############################################', file=f)
