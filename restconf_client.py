@@ -30,7 +30,7 @@ class RestconfClient():
             Response: requests.Response
         """
         try:
-            response = requests.post(
+            response = requests.put(
                 url=self.base_url+'/'+url,
                 auth=(self.username, self.password),
                 headers=self.header,
@@ -45,7 +45,7 @@ class RestconfClient():
 
     def get_config(self, url: str, verify:bool=False) -> requests.Response:
         """
-        設定をPUTする関数
+        設定をgetする関数
         Args:
             url: str
                 PUTするデータのURL.先頭の/はつけないこと。
@@ -76,7 +76,7 @@ class RestconfClient():
         設定をdeleteする関数
         Args:
             url: str
-                PUTするデータのURL.先頭の/はつけないこと。
+                deleteするデータのURL.先頭の/はつけないこと。
                 'https://{self.host}:{self.port}/restconf/data'に連結するURLを指定する。
                 ex)
                     url=Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
@@ -97,3 +97,35 @@ class RestconfClient():
             raise requests.HTTPError()
         else:
             return response
+ 
+ 
+    def patch_config(self, url: str, config:dict,  verify:bool=False) -> requests.Response:
+        """
+        設定をpatchする関数
+        Args:
+            url: str
+                patchするデータのURL.先頭の/はつけないこと。
+                'https://{self.host}:{self.port}/restconf/data'に連結するURLを指定する。
+                ex)
+                    url=Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+                    -> https://{self.host}:{self.port}/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEhternet=2
+            config:dict
+                PUTするデータ
+            verify: bool = False
+
+        return: 
+            Response: requests.Response
+        """
+        try:
+            response = requests.patch(
+                url=self.base_url+'/'+url,
+                auth=(self.username, self.password),
+                headers=self.header,
+                json=config,
+                verify=verify
+            )
+        except requests.HTTPError:
+            raise requests.HTTPError()
+        else:
+            return response
+        

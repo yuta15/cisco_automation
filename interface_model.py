@@ -7,12 +7,12 @@ from hsrp_model import HsrpModel
 class InterfaceModel(BaseModel):
     if_type: Literal['GigabitEthernet', 'FastEthernet', 'Loopback']
     if_name: str
-    pri_addr_and_mask: IPv4Address
-    if_url: str = Field(default_factory=f'Cisco-IOS-XE-native:native/interface/{if_type}="{if_name}"')
+    pri_addr_and_mask: Optional[IPv4Address] = Field(default=None)
+    if_url: Optional[str] = Field(default=None)
     vlan_id: Optional[int]| None = Field(default=None)
     if_description: Optional[str] = Field(default=None, max_length=30)
-    is_if_enable: bool = Field(default=True)
-    
+
+
     # HSRP設定。今後拡張予定
     # sec_addr_and_mask: Optional[IPv4Address] = Field(default=None)
     # hsrp: Optional[HsrpModel] = Field(default=None)
@@ -22,6 +22,14 @@ class InterfaceModel(BaseModel):
     # standby_preempt_delay: Optional[int] = Field(default=None, ge=0, le=3600)
     # standby_preempt_minimum: Optional[int] = Field(default=None, ge=0, le=3600)
     # standby_preempt_reload: Optional[int] = Field(default=None, ge=0, le=3600)
+
+    @model_validator(mode='before')
+    @classmethod
+    def _validate_url(cls, values):
+        if_type = values.get('if_type')
+        if_name = values.get('if_name')
+        values['if_url'] = f'Cisco-IOS-XE-native:native/interface/{if_type}="{if_name}"'
+        return values
 
 
     @field_validator('if_name' ,mode='before')
@@ -48,14 +56,13 @@ class InterfaceModel(BaseModel):
         """interface設定用のConfigを生成する関数"""
         if_config = {
             self.if_type: {
-                "name": self.if_num,
+                "name": self.if_name,
                 "description": self.if_description,
-                "shutdown": False if self.is_if_enable else None,
                 "ip": {
                     "address": {
                         "primary": {
-                            "address": str(self.if_addr_and_mask.ip),
-                            "mask": str(self.if_addr_and_mask.netmask)
+                            "address": str(self.pri_addr_and_mask.ip),
+                            "mask": str(self.pri_addr_and_mask.netmask)
                             }
                     }
                 }
@@ -68,13 +75,3 @@ class InterfaceModel(BaseModel):
                 }
             }
         return if_config
-    
-    
-    def if_enable_config(self, enable_hardware_if: int) -> dict:
-        """物理インターフェースのみをUPさせたい場合に使用"""
-        enable_config = {
-            self.if_type: {
-                "name": enable_hardware_if,
-                "shutdown": False
-            }
-        }
