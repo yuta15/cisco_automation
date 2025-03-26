@@ -1,6 +1,7 @@
 from interface_model import InterfaceModel
 from restconf_client import RestconfClient
 from setting import Setting
+import pprint
     
     
 def main():
@@ -37,8 +38,8 @@ def main():
     with open('result.txt', mode='w') as f:
         # 変更前
         print('################## bf ##########################', file=f)
-        print(client.get_config(url='Cisco-IOS-XE-native:native/interface').json(), file=f)
-        
+        pprint.pprint(client.get_config(url='Cisco-IOS-XE-native:native/interface').json(), stream=f)
+
         # サブインターフェース作成
         print('############## create sub-interfaces ##############################', file=f)
         for test_if_param in test_if_params:
@@ -49,7 +50,7 @@ def main():
                 config=if_config,
                 verify=False
                 )
-            print(result.status_code,result.content ,file=f)
+            pprint.pprint(result.status_code ,stream=f)
 
         # インターフェース enable
         print('############## interface enable ##############################', file=f)
@@ -63,7 +64,7 @@ def main():
 
         # 変更後
         print('################### af #########################', file=f)
-        print(client.get_config(url='Cisco-IOS-XE-native:native/interface').json(), file=f)
+        pprint.pprint(client.get_config(url='Cisco-IOS-XE-native:native/interface').json(), stream=f)
 
 
 if __name__ == "__main__":

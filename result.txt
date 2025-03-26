@@ -1,18 +1,112 @@
 ################## bf ##########################
-{'Cisco-IOS-XE-native:interface': {'GigabitEthernet': [{'name': '1', 'ip': {'address': {'primary': {'address': '192.168.1.100', 'mask': '255.255.255.0'}}}, 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}, {'name': '2', 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}, {'name': '2.100', 'description': '### vlan 100 ###', 'encapsulation': {'dot1Q': {'vlan-id': 100}}, 'ip': {'address': {'primary': {'address': '10.1.100.1', 'mask': '255.255.255.0'}}}}, {'name': '2.101', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 101}}, 'ip': {'address': {'primary': {'address': '10.1.101.1', 'mask': '255.255.255.0'}}}}, {'name': '2.102', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 102}}, 'ip': {'address': {'primary': {'address': '10.1.102.1', 'mask': '255.255.255.0'}}}}, {'name': '2.103', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 103}}, 'ip': {'address': {'primary': {'address': '10.1.103.1', 'mask': '255.255.255.0'}}}}, {'name': '2.104', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 104}}, 'ip': {'address': {'primary': {'address': '10.1.104.1', 'mask': '255.255.255.0'}}}}, {'name': '3', 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}, {'name': '3.200', 'description': '### vlan 200 ###', 'encapsulation': {'dot1Q': {'vlan-id': 200}}, 'ip': {'address': {'primary': {'address': '10.1.200.1', 'mask': '255.255.255.0'}}}}, {'name': '3.201', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 201}}, 'ip': {'address': {'primary': {'address': '10.1.201.1', 'mask': '255.255.255.0'}}}}, {'name': '3.202', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 202}}, 'ip': {'address': {'primary': {'address': '10.1.202.1', 'mask': '255.255.255.0'}}}}, {'name': '3.203', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 203}}, 'ip': {'address': {'primary': {'address': '10.1.203.1', 'mask': '255.255.255.0'}}}}, {'name': '3.204', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 204}}, 'ip': {'address': {'primary': {'address': '10.1.204.1', 'mask': '255.255.255.0'}}}}, {'name': '4', 'shutdown': [None], 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}]}}
+{'Cisco-IOS-XE-native:interface': {'GigabitEthernet': [{'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'ip': {'address': {'primary': {'address': '192.168.1.100',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '1'},
+                                                       {'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '2',
+                                                        'shutdown': [None]},
+                                                       {'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '3',
+                                                        'shutdown': [None]},
+                                                       {'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '4',
+                                                        'shutdown': [None]}]}}
 ############## create sub-interfaces ##############################
-204 b''
-204 b''
-204 b''
-204 b''
-204 b''
-204 b''
-204 b''
-204 b''
-204 b''
-204 b''
+201
+201
+201
+201
+201
+201
+201
+201
+201
+201
 ############## interface enable ##############################
-404 b'' https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%222%22/shutdown
-404 b'' https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223%22/shutdown
+204 b'' https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%222%22/shutdown
+204 b'' https://192.168.1.100:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=%223%22/shutdown
 ################### af #########################
-{'Cisco-IOS-XE-native:interface': {'GigabitEthernet': [{'name': '1', 'ip': {'address': {'primary': {'address': '192.168.1.100', 'mask': '255.255.255.0'}}}, 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}, {'name': '2', 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}, {'name': '2.100', 'description': '### vlan 100 ###', 'encapsulation': {'dot1Q': {'vlan-id': 100}}, 'ip': {'address': {'primary': {'address': '10.1.100.1', 'mask': '255.255.255.0'}}}}, {'name': '2.101', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 101}}, 'ip': {'address': {'primary': {'address': '10.1.101.1', 'mask': '255.255.255.0'}}}}, {'name': '2.102', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 102}}, 'ip': {'address': {'primary': {'address': '10.1.102.1', 'mask': '255.255.255.0'}}}}, {'name': '2.103', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 103}}, 'ip': {'address': {'primary': {'address': '10.1.103.1', 'mask': '255.255.255.0'}}}}, {'name': '2.104', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 104}}, 'ip': {'address': {'primary': {'address': '10.1.104.1', 'mask': '255.255.255.0'}}}}, {'name': '3', 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}, {'name': '3.200', 'description': '### vlan 200 ###', 'encapsulation': {'dot1Q': {'vlan-id': 200}}, 'ip': {'address': {'primary': {'address': '10.1.200.1', 'mask': '255.255.255.0'}}}}, {'name': '3.201', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 201}}, 'ip': {'address': {'primary': {'address': '10.1.201.1', 'mask': '255.255.255.0'}}}}, {'name': '3.202', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 202}}, 'ip': {'address': {'primary': {'address': '10.1.202.1', 'mask': '255.255.255.0'}}}}, {'name': '3.203', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 203}}, 'ip': {'address': {'primary': {'address': '10.1.203.1', 'mask': '255.255.255.0'}}}}, {'name': '3.204', 'description': 'null', 'encapsulation': {'dot1Q': {'vlan-id': 204}}, 'ip': {'address': {'primary': {'address': '10.1.204.1', 'mask': '255.255.255.0'}}}}, {'name': '4', 'shutdown': [None], 'mop': {'enabled': False, 'sysid': False}, 'Cisco-IOS-XE-ethernet:negotiation': {'auto': True}}]}}
+{'Cisco-IOS-XE-native:interface': {'GigabitEthernet': [{'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'ip': {'address': {'primary': {'address': '192.168.1.100',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '1'},
+                                                       {'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '2'},
+                                                       {'description': '### '
+                                                                       'vlan '
+                                                                       '100 '
+                                                                       '###',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 100}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.100.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '2.100'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 101}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.101.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '2.101'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 102}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.102.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '2.102'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 103}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.103.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '2.103'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 104}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.104.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '2.104'},
+                                                       {'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '3'},
+                                                       {'description': '### '
+                                                                       'vlan '
+                                                                       '200 '
+                                                                       '###',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 200}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.200.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '3.200'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 201}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.201.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '3.201'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 202}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.202.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '3.202'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 203}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.203.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '3.203'},
+                                                       {'description': 'null',
+                                                        'encapsulation': {'dot1Q': {'vlan-id': 204}},
+                                                        'ip': {'address': {'primary': {'address': '10.1.204.1',
+                                                                                       'mask': '255.255.255.0'}}},
+                                                        'name': '3.204'},
+                                                       {'Cisco-IOS-XE-ethernet:negotiation': {'auto': True},
+                                                        'mop': {'enabled': False,
+                                                                'sysid': False},
+                                                        'name': '4',
+                                                        'shutdown': [None]}]}}
